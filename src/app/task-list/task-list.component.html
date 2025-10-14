@@ -1,0 +1,64 @@
+<div class="task-container">
+  <div class="card shadow-sm p-3 rounded">
+    <h4 class="mb-3 text-center fw-semibold text-light">Calulo Task Manager</h4>
+
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter a new task..."
+        [(ngModel)]="newTaskDescription"
+        (keyup.enter)="addTask()"
+      />
+      <button class="btn btn-primary" (click)="addTask()">Add</button>
+    </div>
+
+    <div *ngIf="(tasks$ | async)?.length; else noTasks">
+      <div
+        *ngFor="let task of (tasks$ | async)"
+        class="d-flex align-items-center justify-content-between border-bottom py-2 task-item"
+      >
+        <div class="form-check me-2">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [checked]="task.isCompleted"
+            (change)="toggleCompletion(task.id)"
+          />
+        </div>
+
+        <div class="flex-grow-1 mx-2">
+          <span
+            *ngIf="editingTaskId !== task.id"
+            (click)="startEditing(task)"
+            [ngClass]="{ 'text-decoration-line-through text-muted': task.isCompleted }"
+            class="task-text"
+          >
+            {{ task.description }}
+          </span>
+
+          <input
+            *ngIf="editingTaskId === task.id"
+            [(ngModel)]="editedDescription"
+            (blur)="saveEdit(task)"
+            (keyup.enter)="saveEdit(task)"
+            class="form-control edit-input"
+            autofocus
+          />
+        </div>
+
+        <button
+          class="btn btn-sm btn-outline-danger delete-btn"
+          (click)="deleteTask(task.id)"
+          title="Delete Task"
+        >
+          🗑
+        </button>
+      </div>
+    </div>
+
+    <ng-template #noTasks>
+      <p class="text-center text-muted m-0">No tasks yet. Add one above!</p>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+.card {
+    background-color: #1a1a28;
+    color: #eaeaea;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(108, 92, 231, 0.2);
+    max-width: 430px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  .card h4 {
+    color: #bda9ff;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Input and Add Button */
+  .input-group input {
+    background-color: #2a2a3b;
+    border: 1px solid #3a3a4d;
+    color: #e0e0e0;
+    border-radius: 8px;
+  }
+  
+  .input-group input::placeholder {
+    color: #999;
+  }
+  
+  .input-group button {
+    background-color: #ff6b35;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group button:hover {
+    background-color: #ff8b55;
+    transform: scale(1.05);
+  }
+  
+  /* ✅ Each Task Item */
+  .task-item {
+    background-color: #222236;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .task-item:hover {
+    background-color: #2c2c48;
+  }
+  
+  /* 🧾 Task Text */
+  .task-item span {
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .task-item span.text-decoration-line-through {
+    color: #888;
+  }
+  
+  /* 🗑 Trash Button */
+  .task-item button {
+    border: none;
+    background: none;
+    color: #ff5c5c;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+  }
+  
+  .task-item button:hover {
+    color: #ff7b7b;
+    transform: scale(1.2);
+  }
+  
+  /* ☑ Checkbox */
+  .form-check-input {
+    accent-color: #6c5ce7;
+    transform: scale(1.2);
+  }
+  
+  /* Empty state */
+  p.text-center.text-muted {
+    color: #aaa !important;
+  }
+  
+  /* Page Background (Optional) */
+  body {
+    background: radial-gradient(circle at top left, #0b0b15, #13131f);
+    font-family: 'Poppins', sans-serif;
+  }
