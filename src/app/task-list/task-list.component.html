@@ -2,6 +2,9 @@
   <div class="card shadow-sm p-3 rounded">
     <h4 class="mb-3 text-center fw-semibold text-light">Calulo Task Manager</h4>
 
+    <!-- ✅ Optional: Show today's current date -->
+    <p class="text-center text-light small mb-3">Today: {{ today | date:'fullDate' }}</p>
+
     <div class="input-group mb-3">
       <input
         type="text"
@@ -32,7 +35,7 @@
             *ngIf="editingTaskId !== task.id"
             (click)="startEditing(task)"
             [ngClass]="{ 'text-decoration-line-through text-muted': task.isCompleted }"
-            class="task-text"
+            class="task-text d-block"
           >
             {{ task.description }}
           </span>
@@ -45,6 +48,11 @@
             class="form-control edit-input"
             autofocus
           />
+
+          <!-- ✅ Show creation date -->
+          <small class="text-secondary d-block mt-1">
+            Added: {{ task.createdAt | date:'short' }}
+          </small>
         </div>
 
         <button

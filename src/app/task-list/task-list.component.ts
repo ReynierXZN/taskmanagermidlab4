@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent {
+  today = new Date();
   tasks$: Observable<Task[]>;
   editingTaskId: number | null = null;
   editedDescription: string = '';
